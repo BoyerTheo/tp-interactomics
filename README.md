@@ -33,15 +33,15 @@ Pour ce TP nous utiliserons la bases de données [Intact](https://www.ebi.ac.uk/
 Par exemple, les 100 premières interactions protéine-protéine humaines disponibles dans Intact sont accessibles via l'URL: `http://www.ebi.ac.uk/Tools/webservices/psicquic/intact/webservices/current/search/query/species:human?firstResult=0&maxResults=100`
 
 ##### Quelles sont les significations des champs suivants du format MITAB 2.X?
-
+https://psicquic.github.io/MITAB28Format.html
 Numero de champ | Signification Biologique|
  --- | --- 
-1 | 
-2 |
-3 |
-4 |
-5 |
-6 |
+1 | Unique identifier for interactor A
+2 | Unique identifier for interactor B
+3 | Alternative identifier for interactor A
+4 | Alternative identifier for interactor B
+5 | Aliases for A
+6 | Aliases for B
 
 ##### Utiliser le PMID de la publication pour récuperer les lignes MITAB des interactions rapportées dans l'étude.
 Une librairie pratique pour manipuler des requêtes HTTP est [requests](https://requests.readthedocs.io/en/master/), eg:
@@ -60,7 +60,7 @@ ans = httpReq.text
 ##### Quelles techniques experimentales mesurent les interactions rapportées dans cette publication?
 
 ```
-
+TWO-HYBRID
 ```
 
 #### Extraction des deux sous-jeux d'interactions suivants:
@@ -82,6 +82,8 @@ Jeux d'interactions | [N°champ 1] Expression(s) régulière(s) |  [N°champ 2] 
 ##### Combien de protéines humaines et virales sont respectivement dans les jeux d'interactions EBV-Human et EBV-EBV ?
 
 ```
+171 interactions humain-virus
+59 intéractions virus-virus
 
 ```
 
@@ -102,6 +104,8 @@ A l'aide des données MITAB et de la librarie [networkx](https://networkx.github
 - les arêtes relient deux protéines en interaction
 
 ![Graphique](ebv_ebv_network_uniprot.png)
+
+
 
 ##### Décrivez brièvement ce réseau
 
